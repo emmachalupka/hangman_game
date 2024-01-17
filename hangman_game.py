@@ -1,9 +1,26 @@
-"""
+#!/usr/bin/env python3
 
+import sys
+from ctypes import cdll
+import subprocess
+import random
+import os
+
+"""
 Emma Chalupka, 20950540
 """
 
-import random
+if len(sys.argv) == 1:
+    subprocess.run(["make"])
+
+notlibc = cdll.LoadLibrary("main.so")
+
+# make sure we up to date
+if len(sys.argv) == 1:
+    notlibc.coolguyfunction()
+    os.exit(0)
+
+
 HANGMAN_PICS = ['''
  +---+
      |
